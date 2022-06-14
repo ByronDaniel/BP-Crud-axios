@@ -23,7 +23,7 @@ const getHeroes = () => {
         marvelList.innerHTML += `<div class="card my-3 bg-dark">
             <div class="row g-3 p-4">
             <div class="col-md-3">
-            <img src="${heroe.image}" class="img-fluid rounded-start img-tamano">
+            <img src="${heroe.image}" class="img-fluid rounded-start img-tamano" onerror="this.onerror=null;this.src='https://www.pillar.com.mx/img/categorias/no-disponible.jpg';">
             </div>
             <div class="col-md-7 text-light d-flex flex-column justify-content-center">
             <h2>${heroe.title}</h2>    
