@@ -86,7 +86,7 @@
                   placeholder="https://ejemplo.com"
                   pattern="https://.*"
                 />
-                <div id="imagenHelp" class="form-text"></div>
+                <div id="imagenHelp" class="form-text text-danger"></div>
               </div>
               <div class="mb-3">
                 <label for="heroeTitulo" class="form-label">Titulo</label>
@@ -96,7 +96,7 @@
                   id="heroeTitulo"
                   aria-describedby="tituloHelp"
                 />
-                <div id="tituloHelp" class="form-text"></div>
+                <div id="tituloHelp" class="form-text text-danger"></div>
               </div>
               <div class="mb-3">
                 <label for="heroeDescripcion" class="form-label"
@@ -108,11 +108,12 @@
                   aria-describedby="descripcionHelp"
                   style="height: 200px"
                 ></textarea>
-                <div id="descripcionHelp" class="form-text"></div>
+                <div id="descripcionHelp" class="form-text text-danger"></div>
               </div>
-              <button type="button" class="btn btn-primary" id="formBtn">
+              <button type="button" class="btn btn-danger" id="formBtn">
                 Agregar
               </button>
+              <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
             </form>
           </div>
         </div>
@@ -131,6 +132,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="script.js"></script>
   </body>
 </html>

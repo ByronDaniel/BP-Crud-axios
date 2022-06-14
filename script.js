@@ -54,14 +54,37 @@ on(".btnBorrar", (e) => {
   const params = {
     idAuthor,
   };
-  axios
-    .delete(`${API_URL}/${id}`, { params })
-    .then((res) => {
-      location.reload();
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+  Swal.fire({
+    title: '',
+    text: "Estás seguro que deseas eliminar al heroe?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#dc3545',
+    cancelButtonColor: '#ffc107',
+    confirmButtonText: 'Eliminar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      axios
+      .delete(`${API_URL}/${id}`, { params })
+      .then((res) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Eliminado con Exito!',
+          showConfirmButton: false,
+          timer: 1000
+        })
+        setTimeout(()=>{
+          location.reload();
+        },1000)
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+      
+    }
+  })
 });
 //Nuevo Heroe
 FORM_BTN.addEventListener("click", (e) => {
@@ -117,10 +140,25 @@ FORM_BTN.addEventListener("click", (e) => {
     axios
       .post(`${API_URL}`, bodyRequest, { params })
       .then((res) => {
-        location.reload();
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Heroe guardado',
+          showConfirmButton: false,
+          timer: 1000
+        })
+        setTimeout(()=>{
+          location.reload();
+        },1000)
       })
       .catch((err) => {
-        console.error(err);
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: `${err.response.data.message}`,
+          showConfirmButton: false,
+          timer: 1000
+        })
       });
   }
 });
