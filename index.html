@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marvel Page with bootstrap</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="container pt-4">
+    <div class="d-flex justify-content-between mb-4">
+      <h2>Listado de personajes</h2>
+      <button
+        class="btn btn-danger d-flex align-items-center justify-content-center"
+      >
+        <i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión
+      </button>
+    </div>
+
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control"
+        id="inputSearch"
+        placeholder="Buscar"
+      />
+      <button
+        class="btn btn-danger d-flex justify-content-center align-items-center"
+        data-bs-toggle="modal"
+        data-bs-target="#addHeroe"
+      >
+        <i class="fa-solid fa-plus"></i>Nuevo
+      </button>
+    </div>
+
+    <div
+      class="spinner-border spinner"
+      style="width: 6rem; height: 6rem"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+
+    <div
+      class="modal fade"
+      id="addHeroe"
+      tabindex="-1"
+      aria-labelledby="addHeroe"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nuevo Heroe</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="formHeroe">
+              <div class="mb-3">
+                <label for="heroeImagen" class="form-label"
+                  >Url de la Imagen</label
+                >
+                <input
+                  type="url"
+                  class="form-control"
+                  id="heroeImagen"
+                  aria-describedby="imagenHelp"
+                  placeholder="https://ejemplo.com"
+                  pattern="https://.*"
+                />
+                <div id="imagenHelp" class="form-text"></div>
+              </div>
+              <div class="mb-3">
+                <label for="heroeTitulo" class="form-label">Titulo</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="heroeTitulo"
+                  aria-describedby="tituloHelp"
+                />
+                <div id="tituloHelp" class="form-text"></div>
+              </div>
+              <div class="mb-3">
+                <label for="heroeDescripcion" class="form-label"
+                  >Descripción</label
+                >
+                <textarea
+                  class="form-control"
+                  id="heroeDescripcion"
+                  aria-describedby="descripcionHelp"
+                  style="height: 200px"
+                ></textarea>
+                <div id="descripcionHelp" class="form-text"></div>
+              </div>
+              <button type="button" class="btn btn-primary" id="formBtn">
+                Agregar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="marvel-list" id="marvelList"></div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+      integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
